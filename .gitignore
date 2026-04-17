@@ -1,0 +1,45 @@
+# Next.js
+node_modules/
+.next/
+out/
+build/
+
+# Environment Variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
+
+# Python
+venv/
+ENV/
+env/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+.venv
+pip-wheel-metadata/
+
+# Database
+*.db
+*.sqlite3
+
+# Uploads
+uploads/*
+!uploads/.gitkeep
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
