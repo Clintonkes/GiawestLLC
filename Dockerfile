@@ -25,7 +25,7 @@ RUN pip install --no-cache-dir --upgrade pip     && pip install --no-cache-dir -
 COPY api ./api
 COPY database ./database
 COPY scripts ./scripts
-COPY uploads ./uploads
+RUN mkdir -p /app/uploads
 COPY run.py restore_images.py update_db_images.py ./
 COPY --from=frontend-builder /app/out ./out
 
