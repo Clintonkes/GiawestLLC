@@ -15,6 +15,7 @@ import sys
 import logging
 from pathlib import Path
 from datetime import datetime
+from sqlalchemy import text
 
 # Configure global logging
 logging.basicConfig(
@@ -97,23 +98,23 @@ async def lifespan(app: FastAPI):
         
         db = SessionLocal()
         # 1. Update Database for missing/broken URLs (like GIA-002 or Unsplash links)
-        cursor = db.execute("""
+        cursor = db.execute(text("""
             UPDATE trucks 
             SET image_url = '/api/uploads/van.png' 
             WHERE (image_url IS NULL OR image_url LIKE '%unsplash.com%')
             AND (truck_number = 'GIA-002' OR truck_number = 'UP-002')
-        """)
+        """))
         db.commit()
         if cursor.rowcount > 0:
             logger.info(f"Fixed {cursor.rowcount} trucks with null or broken Unsplash images.")
             
         # Ensure GIA-001 has its default too if missing
-        db.execute("""
+        db.execute(text("""
             UPDATE trucks 
             SET image_url = '/api/uploads/semi.png' 
             WHERE (image_url IS NULL OR image_url = '')
             AND (truck_number = 'GIA-001' OR truck_number = 'GS-001')
-        """)
+        """))
         db.commit()
             
         # 2. Restore missing files
