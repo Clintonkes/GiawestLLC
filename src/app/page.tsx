@@ -86,7 +86,7 @@ export default function Home() {
       <Header />
 
       {/* Hero Section */}
-      <section id="hero" className="relative h-screen flex items-center pt-20 overflow-hidden bg-primary text-white">
+      <section id="hero" className="relative flex min-h-screen items-center overflow-hidden bg-primary pt-28 text-white sm:pt-32 md:h-screen md:pt-20">
         {/* Abstract Background Animation */}
         <div className="absolute inset-0 z-0">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] opacity-20">
@@ -95,7 +95,7 @@ export default function Home() {
           <div className="absolute inset-0 bg-slate-950/40" />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 py-8 sm:py-10 md:py-0 grid md:grid-cols-2 gap-10 md:gap-12 items-center">
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
@@ -105,19 +105,19 @@ export default function Home() {
               <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
               <span className="text-xs font-bold uppercase tracking-wider text-blue-300">New: Express Routes Available</span>
             </div>
-            <h1 className="text-5xl md:text-7xl font-heading font-black mb-6 leading-tight">
+            <h1 className="max-w-[10ch] text-4xl leading-[0.95] sm:text-5xl md:max-w-none md:text-7xl font-heading font-black mb-6 md:leading-tight">
               Logistics for the <span className="text-accent">Modern</span> World.
             </h1>
-            <p className="text-xl text-slate-300 mb-10 max-w-xl">
+            <p className="text-lg sm:text-xl text-slate-300 mb-8 md:mb-10 max-w-xl">
               Florida Prod Market LLC provides a seamless, data-driven platform to manage your global freight and truckload operations with absolute precision.
             </p>
             
-            <div className="flex flex-col sm:row items-center gap-4">
+            <div className="flex flex-col items-stretch sm:items-center gap-4">
               <button onClick={() => window.location.href='/quote'} className="btn-accent w-full sm:w-auto flex items-center justify-center space-x-2 group">
                 <span>Ship with Us</span>
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </button>
-              <button className="px-6 py-3 text-white/80 hover:text-white font-semibold flex items-center space-x-2 transition-colors">
+              <button className="px-6 py-3 text-white/80 hover:text-white font-semibold flex items-center justify-center space-x-2 transition-colors">
                 <span>View Our Network</span>
                 <ChevronRight className="h-4 w-4" />
               </button>
@@ -129,7 +129,7 @@ export default function Home() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="glass-card p-8 text-primary"
+            className="glass-card p-6 sm:p-8 text-primary"
           >
             <h3 className="text-2xl font-heading font-bold mb-6 flex items-center space-x-2">
               <Search className="h-5 w-5 text-accent" />

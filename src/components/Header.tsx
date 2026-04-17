@@ -58,16 +58,16 @@ export function Header() {
   return (
     <header
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white/90 backdrop-blur-md shadow-sm py-3" : "bg-transparent py-5"
+        isScrolled ? "bg-white/90 backdrop-blur-md shadow-sm py-3 md:py-3" : "bg-transparent py-4 md:py-5"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-        <Link href="/" className="flex items-center space-x-2">
-          <div className="relative p-2 bg-gradient-to-br from-accent to-blue-600 rounded-xl shadow-lg shadow-accent/20">
-            <Globe className="h-6 w-6 text-white" />
-            <Zap className="h-3 w-3 text-white absolute -top-1 -right-1 fill-white" />
+      <div className="max-w-7xl mx-auto px-4 md:px-6 flex items-center justify-between gap-3">
+        <Link href="/" className="flex min-w-0 items-center space-x-2 md:space-x-2.5">
+          <div className="relative shrink-0 p-2 bg-gradient-to-br from-accent to-blue-600 rounded-xl shadow-lg shadow-accent/20">
+            <Globe className="h-5 w-5 md:h-6 md:w-6 text-white" />
+            <Zap className="h-2.5 w-2.5 md:h-3 md:w-3 text-white absolute -top-1 -right-1 fill-white" />
           </div>
-          <span className={`text-xl font-heading font-bold ${isScrolled ? "text-primary" : "text-white"}`}>
+          <span className={`hidden sm:block text-base md:text-xl font-heading font-bold truncate ${isScrolled ? "text-primary" : "text-white"}`}>
             Florida Prod Market LLC
           </span>
         </Link>
@@ -97,7 +97,7 @@ export function Header() {
 
         {/* Mobile Menu Toggle */}
         <button
-          className="md:hidden p-2"
+          className="md:hidden shrink-0 p-2"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           {isMenuOpen ? (
